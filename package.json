@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "test": "npm --prefix backend test"
+  },
   "dependencies": {
     "express-rate-limit": "^7.5.0",
     "mongodb": "^6.15.0",
