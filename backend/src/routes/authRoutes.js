@@ -1,4 +1,6 @@
 const express = require('express');
+const { registerSchema, loginSchema, forgotPasswordSchema, resetPasswordSchema } = require('../validators/userValidator')
+const { validateSchema } = require('../middlewares/validateMiddleware')
 const { protect } = require('../middlewares/authMiddleware');
 const createRateLimiter = require("../utils/rateLimiter");
 const { registerUser, loginUser, updatePassword, forgotPassword, resetPassword } = require('../controllers/authController');
@@ -12,14 +14,14 @@ const emailLimiter = createRateLimiter(
 
 const router = express.Router();
 
-router.post('/register', registerUser);
+router.post('/register', validateSchema(registerSchema), registerUser);
 
-router.post('/login', loginUser);
+router.post('/login', validateSchema(loginSchema), loginUser);
 
-router.put("/update-password", protect, updatePassword);
+router.put("/update-password", protect, validateSchema(resetPasswordSchema), updatePassword);
 
-router.post("/forgot-password", emailLimiter, forgotPassword);
+router.post("/forgot-password", emailLimiter, validateSchema(forgotPasswordSchema), forgotPassword);
 
-router.post("/reset-password/:token", resetPassword);
+router.post("/reset-password/:token", validateSchema(resetPasswordSchema), resetPassword);
 
 module.exports = router;
