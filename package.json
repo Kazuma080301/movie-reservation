@@ -1,7 +1,7 @@
 {
   "scripts": {
     "test": "npm --prefix backend test",
-    "dev": "npm --prefix backend dev"
+    "dev": "nodemon backend/src/server.js"
   },
   "dependencies": {
     "express-rate-limit": "^7.5.0",
