@@ -1,9 +1,9 @@
 const express = require('express');
-const { registerSchema, loginSchema, forgotPasswordSchema, resetPasswordSchema } = require('../validators/userValidator')
-const { validateSchema } = require('../middlewares/validateMiddleware')
-const { protect } = require('../middlewares/authMiddleware');
-const createRateLimiter = require("../utils/rateLimiter");
-const { registerUser, loginUser, updatePassword, forgotPassword, resetPassword } = require('../controllers/authController');
+const { registerSchema, loginSchema, forgotPasswordSchema, resetPasswordSchema } = require('../user/userValidator')
+const { validateSchema } = require('../../middlewares/validateMiddleware')
+const { protect } = require('./authMiddleware');
+const createRateLimiter = require("../../utils/rateLimiter");
+const { registerUser, loginUser, updatePassword, forgotPassword, resetPassword } = require('./authController');
 
 // 🔹 Define a rate limiter for email-related actions
 const emailLimiter = createRateLimiter(
