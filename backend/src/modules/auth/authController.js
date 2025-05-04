@@ -1,8 +1,8 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
-const generateToken = require('../utils/generateToken');
-const sendEmail = require("../utils/emailService");
+const User = require('../user/User');
+const generateToken = require('../../utils/generateToken');
+const sendEmail = require("../../utils/emailService");
 
 const registerUser = async (req, res) => {
     try {

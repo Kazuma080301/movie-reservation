@@ -1,8 +1,7 @@
-const { format } = require("path");
-const Theater = require("../models/Theater")
-const Show = require("../models/Show")
-const Seat = require("../models/Seat")
-const Screen = require("../models/Screen")
+const Theater = require("../theater/Theater")
+const Show = require("./Show")
+const Seat = require("../../models/Seat")
+const Screen = require("../../models/Screen")
 
 const getShows = async (req, res) => {
     try {
