@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
+    "console": "node src/modules/console.js",
     "test": "echo \"No tests defined\" && exit 0"
   },
   "keywords": [],

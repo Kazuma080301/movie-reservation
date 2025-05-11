@@ -18,17 +18,20 @@ app.get('/', (req, res) => {
     res.send('Hello, MongoDB is connected!');
 });
 
-const userRoutes = require('./src/modules/user/userRoutes');
+const userRoutes = require('./src/modules/user/user.routes');
 app.use('/api/users', userRoutes);
 
-const authRoutes = require('./src/modules/auth/authRoutes');
+const authRoutes = require('./src/modules/auth/auth.routes');
 app.use('/api/auth', authRoutes);
 
-const movieRoutes = require('./src/modules/movie/movieRoutes')
+const movieRoutes = require('./src/modules/movie/movie.routes')
 app.use("/api/movies", movieRoutes);
 
-const showRoutes = require('./src/modules/show/showRoutes')
+const showRoutes = require('./src/modules/show/show.routes')
 app.use('/api/show', showRoutes)
+
+const adminRoutes = require('./src/modules/admin/admin.routes')
+app.use('/api/admin', adminRoutes)
 
 // Start Server
 app.listen(PORT, () => {

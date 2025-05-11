@@ -8,7 +8,7 @@ const movieSchema = new mongoose.Schema(
         director: { type: String, required: true },
         releaseDate: { type: Date, required: true },
         duration: { type: Number, required: true }, // Duration in minutes
-        language: { type: String, required: true },
+        language: { type: [String], required: true },
         description: { type: String },
         poster: { type: String }, // URL to the movie poster
         popularity: { type: Number, default: 0 }, // Popularity Score
